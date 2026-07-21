@@ -2,8 +2,9 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { getNote } from '../../../lib/api';
+
 import { useParams, useRouter } from 'next/navigation';
+import { getNote } from '../../../../lib/api';
 
 export default function NoteDetailsClient() {
   const { id } = useParams<{ id: string }>();

@@ -3,8 +3,9 @@ import {
   HydrationBoundary,
   dehydrate,
 } from '@tanstack/react-query';
-import { getNote } from '../../../lib/api';
+
 import NoteDetailsClient from './NoteDetails.client';
+import { getNote } from '../../../../lib/api';
 
 interface NoteProps {
   params: Promise<{ id: string }>;
