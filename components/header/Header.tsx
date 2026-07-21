@@ -20,7 +20,7 @@ function Header() {
           </Link>
 
           <Link
-            href="/notes"
+            href="/notes/filters/all"
             className="rounded-md px-3 py-1.5 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
           >
             Notes

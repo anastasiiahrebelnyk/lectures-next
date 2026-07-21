@@ -3,10 +3,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { getNote } from '../../../lib/api';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 export default function NoteDetailsClient() {
   const { id } = useParams<{ id: string }>();
+  const router = useRouter();
   const [isEdit, setIsEdit] = useState<boolean>(false);
 
   const noteQ = useQuery({
@@ -14,11 +15,18 @@ export default function NoteDetailsClient() {
     queryFn: () => getNote(id),
     refetchOnMount: false,
   });
+  const handleBack = () => {
+    if (confirm('are you shure?')) {
+      router.push('/notes');
+    }
+    // router.back();
+  };
   const toggleEdit = () => {
     setIsEdit(prevIsEdit => !prevIsEdit);
   };
   return (
     <>
+      <button onClick={handleBack}>Back</button>
       <button onClick={() => toggleEdit()}>Click</button>
       {isEdit ? (
         <form>

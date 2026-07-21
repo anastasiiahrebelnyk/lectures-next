@@ -5,12 +5,19 @@ const API = axios.create({
   baseURL: 'http://next-v1-notes-api.goit.study',
 });
 
-export async function getNotes(): Promise<{ notes: Note[]; total: number }> {
+export async function getNotes(
+  categoryId?: string
+): Promise<{ notes: Note[]; total: number }> {
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
       try {
         const { data } = await API.get<{ notes: Note[]; total: number }>(
-          '/notes'
+          '/notes',
+          {
+            params: {
+              categoryId,
+            },
+          }
         );
         resolve(data);
       } catch (error) {
