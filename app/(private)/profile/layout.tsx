@@ -1,8 +1,14 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 
 interface ProfileLayoutProps {
   children: React.ReactNode;
 }
+
+export const metadata: Metadata = {
+  title: 'Profile | NoteHub',
+  description: 'Your profile on NoteHub',
+};
 
 export default function ProfileLayout({ children }: ProfileLayoutProps) {
   return (

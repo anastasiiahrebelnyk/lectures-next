@@ -1,4 +1,10 @@
+import { title } from 'process';
 import PageContainer from '../../../components/PageContainer/PageContainer';
+
+export const metadata: Metedata = {
+  title: 'Control panel',
+  description: 'Control panel NoteHub',
+};
 
 export default function ControlPanel() {
   return (

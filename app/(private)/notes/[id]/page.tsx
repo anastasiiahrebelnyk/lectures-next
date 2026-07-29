@@ -6,9 +6,27 @@ import {
 
 import NoteDetailsClient from './NoteDetails.client';
 import { getNote } from '../../../../lib/api';
+import { Metadata } from 'next';
 
 interface NoteProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: NoteProps): Promise<Metadata> {
+  const { id } = await params;
+  const note = await getNote(id);
+  return {
+    title: note.title,
+    description: note.content.slice(0, 30),
+    openGraph: {
+      title: note.title,
+      description: note.content.slice(0, 30),
+      url: `http://localhost:3000/notes/${note.id}`,
+      image: 'http://localhost:3000/note.avif',
+    },
+  };
 }
 
 async function Note({ params }: NoteProps) {
