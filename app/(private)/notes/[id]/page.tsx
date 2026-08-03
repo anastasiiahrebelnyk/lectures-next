@@ -24,7 +24,7 @@ export async function generateMetadata({
       title: note.title,
       description: note.content.slice(0, 30),
       url: `http://localhost:3000/notes/${note.id}`,
-      image: 'http://localhost:3000/note.avif',
+      images: 'http://localhost:3000/note.avif',
     },
   };
 }

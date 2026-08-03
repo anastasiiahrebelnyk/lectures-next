@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface NotesLayoutProps {
   children: React.ReactNode;
   sidebar: React.ReactNode;
@@ -9,7 +11,17 @@ export default function NotesLayout({ children, sidebar }: NotesLayoutProps) {
       <aside className="animate-fade-in border-b border-border/80 pb-6 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
         {sidebar}
       </aside>
-      <div className="min-w-0">{children}</div>
+      <div className="min-w-0">
+        <div className="mb-6 flex justify-end">
+          <Link
+            href="/notes/actions/create"
+            className="inline-flex items-center bg-accent px-4 py-2 text-sm font-semibold text-surface transition-opacity duration-200 hover:opacity-90"
+          >
+            Create note
+          </Link>
+        </div>
+        {children}
+      </div>
     </section>
   );
 }
