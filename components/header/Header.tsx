@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import UserMenu from './UserMenu.client';
 
 function Header() {
   return (
@@ -26,12 +27,12 @@ function Header() {
             Notes
           </Link>
 
-          <Link
+          {/* <Link
             href="/profile"
             className="rounded-md px-3 py-1.5 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
           >
             Profile
-          </Link>
+          </Link> */}
 
           <Link
             href="/control-panel"
@@ -39,6 +40,7 @@ function Header() {
           >
             Control panel
           </Link>
+          <UserMenu />
         </nav>
       </div>
     </header>

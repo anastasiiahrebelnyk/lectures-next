@@ -1,0 +1,7 @@
+import axios, { AxiosError } from 'axios';
+
+export type ApiError = AxiosError<{ error: string }>;
+
+export const api = axios.create({
+  baseURL: 'http://next-v1-notes-api.goit.study',
+});
